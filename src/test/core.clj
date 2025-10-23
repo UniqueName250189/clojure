@@ -1,6 +1,6 @@
 (ns test.core
     (:require [clj-http.client :as client])
-    (import [java.JavaExample])
+    (:import [test JavaExample])
     (:gen-class))
 
 (defn multi
@@ -20,4 +20,4 @@
 (defn -main
     "example"
     [& args]
-    (println (src/test/JavaExample/print)))
+    (println (JavaExample/getRandomNumber)))
