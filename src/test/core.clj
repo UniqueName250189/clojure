@@ -1,5 +1,6 @@
 (ns test.core
     (:require [clj-http.client :as client])
+    (:import [java.util ArrayList])
     (:import [test JavaExample])
     (:gen-class))
 
@@ -17,7 +18,16 @@
 (defn http-get [url] 
     (println (client/get url)))
 
+(defn javaArrayLoop [javaArray]
+    (println (ArrayList)))
+
 (defn -main
     "example"
     [& args]
-    (println (JavaExample/getRandomNumber)))
+    (JavaExample/addIntToArrayList 1)
+    (JavaExample/addIntToArrayList 2)
+    (JavaExample/addIntToArrayList 3)
+    (JavaExample/addIntToArrayList 4)
+    (JavaExample/addIntToArrayList 5)
+    
+    (println (JavaExample/returnArrayList)))
