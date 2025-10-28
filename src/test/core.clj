@@ -1,5 +1,7 @@
 (ns test.core
     (:require [clj-http.client :as client])
+    (:require [clojure.data.json :as json])
+    (:require [clojure.java.io :as io])
     (:import [java.util ArrayList])
     (:import [test JavaExample])
     (:gen-class))
@@ -18,16 +20,27 @@
 (defn http-get [url] 
     (println (client/get url)))
 
-(defn javaArrayLoop [javaArray]
-    (println (ArrayList)))
+;(defn javaArrayLoop [javaArray]
+;    (for [javaArray [:a]]))
+
+(defn forLoop [num] 
+    (dotimes [x (+ 1 num)]
+        (println x)))
+
+(defn recuring [i] 
+    (loop [i 0]
+  (if (< i 10)
+    (recur (inc i))
+    i)))
+
+(defn return [i]
+    (* i 5))
+
+(defn readJsonFile [name]
+    (println (:test1 (json/read-str (slurp "resources/test.json")))))
 
 (defn -main
     "example"
     [& args]
-    (JavaExample/addIntToArrayList 1)
-    (JavaExample/addIntToArrayList 2)
-    (JavaExample/addIntToArrayList 3)
-    (JavaExample/addIntToArrayList 4)
-    (JavaExample/addIntToArrayList 5)
     
-    (println (JavaExample/returnArrayList)))
+    (readJsonFile "test.json"))

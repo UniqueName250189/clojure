@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class JavaExample {
-    private static ArrayList array = new ArrayList<>();
+    private static ArrayList<Integer> array = new ArrayList<>();
 
     public static void multiply(int num1, int num2) {
         System.out.println(num1 * num2);
@@ -19,7 +19,7 @@ public class JavaExample {
         array.add(numbr);
     }
 
-    public static ArrayList returnArrayList() {
+    public static ArrayList<Integer> returnArrayList() {
         return array;
     }
 }
