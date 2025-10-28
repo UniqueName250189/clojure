@@ -2,5 +2,11 @@
     "test1":"example",
     "test2":"test",
     "test3":3,
-    "test4":"four"
+    "test4":"four",
+    "test5":{
+        "example1":"one",
+        "example2":":",
+        "example3":"|",
+        "example4":"??"
+    }
 }
