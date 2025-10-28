@@ -36,11 +36,11 @@
 (defn return [i]
     (* i 5))
 
-(defn readJsonFile [name]
-    (println (:test1 (json/read-str (slurp "resources/test.json")))))
+(defn readJsonFile [filePath key]
+    (println (get (json/read-str (slurp filePath)) key)))
 
 (defn -main
     "example"
     [& args]
     
-    (readJsonFile "test.json"))
+    (readJsonFile "resources/test.json", "test4"))
