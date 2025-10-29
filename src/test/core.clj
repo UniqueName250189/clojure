@@ -2,9 +2,10 @@
     (:require [clj-http.client :as client])
     (:require [clojure.data.json :as json])
     (:require [clojure.java.io :as io])
-    (:import [java.util ArrayList])
     (:import [test JavaExample])
     (:gen-class))
+
+(def bitLimit 2147483647)
 
 (defn multi
     [num1 num2]
@@ -20,9 +21,6 @@
 (defn http-get [url] 
     (println (client/get url)))
 
-;(defn javaArrayLoop [javaArray]
-;    (for [javaArray [:a]]))
-
 (defn forLoop [num] 
     (dotimes [x (+ 1 num)]
         (println x)))
@@ -33,9 +31,6 @@
     (recur (inc i))
     i)))
 
-(defn return [i]
-    (* i 5))
-
 (defn readJsonFile [filePath key]
     (println (get (json/read-str (slurp filePath)) key)))
 
@@ -43,4 +38,4 @@
     "example"
     [& args]
     
-    (readJsonFile "resources/test.json" "test5"))
+    (readJsonFile "resources/test.json" "test2"))
